@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iGetHouse Buyer's Toolkit - Your Guide to Owning a Home in Nigeria</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <img src="assets/logo.jpg" alt="iGetHouse Logo" class="logo-img">
+                </div>
+                <button class="nav-toggle">
+                    <span class="nav-toggle-icon"></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="#" class="nav-link">Home</a></li>
+                    <li><a href="#features" class="nav-link">Features</a></li>
+                    <li><a href="#calculator" class="nav-link">Calculator</a></li>
+                    <li><a href="#location" class="nav-link">Location</a></li>
+                </ul>
+                <button id="get-started-btn" class="btn btn-cta">Get Started</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero section">
+        <div class="container">
+            <div class="hero-content">
+                <img src="assets/logo.jpg" alt="iGetHouse" class="hero-brand">
+                <h1>Your trusted guide to owning a home in Nigeria</h1>
+                <p class="hero-text">Navigate Nigeria's real estate market without stress, overpayment, or fraud. Get expert guidance from planning to moving in — completely free.</p>
+                <div class="hero-buttons">
+                    <a href="#checklist" id="start-journey-btn" class="btn btn-primary">Start Your Journey</a>
+                    <a href="#features" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features section">
+        <div class="container" style="text-align: center;">
+            <h2>What iGetHouse Can Do For You</h2>
+            <div class="features-grid">
+                <div class="card feature-card">
+                    <h3>Smart Assessment</h3>
+                    <p>Answer a few questions; we personalize budget, locations, and next steps.</p>
+                </div>
+                <div class="card feature-card">
+                    <h3>Budget Planning</h3>
+                    <p>Estimate total costs and monthly payments based on real-world fees.</p>
+                </div>
+                <div class="card feature-card">
+                    <h3>Location Insights</h3>
+                    <p>Understand security, amenities, and access for top neighborhoods.</p>
+                </div>
+                <div class="card feature-card">
+                    <h3>Agent Handoff</h3>
+                    <p>Send your plan to an iGetHouse agent via WhatsApp or Email.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Budget Calculator Section -->
+    <section id="calculator" class="calculator-section section">
+        <div class="container">
+            <h2>Budget Calculator</h2>
+            <p class="section-description">Estimate upfront costs and monthly payments. Values are indicative based on common Nigerian fees.</p>
+            
+            <form id="budget-form" class="calculator-form">
+                <div class="calc-grid">
+                    <div class="calc-inputs">
+                        <div class="form-group">
+                            <label for="property-price">Property Price (NGN)</label>
+                            <input type="number" id="property-price" class="input" placeholder="Enter property price" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="down-percent">Down Payment (%)</label>
+                            <input type="number" id="down-percent" class="input" value="20" min="0" max="100">
+                            <small class="field-hint">Typical minimum: 20%</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="interest-rate">Interest Rate (APR %)</label>
+                            <input type="number" id="interest-rate" class="input" value="9" min="0" step="0.1">
+                            <small class="field-hint">Example: 9% APR</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="loan-tenor">Loan Tenor (years)</label>
+                            <input type="number" id="loan-tenor" class="input" value="30" min="1">
+                            <small class="field-hint">Commonly 15–30 years</small>
+                        </div>
+                    </div>
+                    <aside class="calc-summary">
+                        <div class="summary-card-large">
+                            <div class="summary-label">Estimated Monthly Payment</div>
+                            <div id="monthly-highlight" class="summary-value">₦0</div>
+                        </div>
+                        <div class="summary-card-large alt">
+                            <div class="summary-label">Upfront Cash Needed</div>
+                            <div id="upfront-highlight" class="summary-value">₦0</div>
+                        </div>
+                        <small class="summary-note">Includes down payment, legal, agent, stamp duty, survey and registration estimates.</small>
+                    </aside>
+                    <div class="calc-breakdown">
+                        <div class="metric-cards">
+                            <div class="metric-card">
+                                <div class="metric-label">Down Payment:</div>
+                                <div class="metric-value" id="down-payment">₦0</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-label">Loan Amount:</div>
+                                <div class="metric-value" id="loan-amount">₦0</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-label">Estimated Monthly Payment:</div>
+                                <div class="metric-value" id="monthly-payment">₦0</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-label">Legal Fees (5%):</div>
+                                <div class="metric-value" id="legal-fees">₦0</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-label">Agent Fees (3%):</div>
+                                <div class="metric-value" id="agent-fees">₦0</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-label">Stamp Duty (1.5%):</div>
+                                <div class="metric-value" id="stamp-duty">₦0</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-label">Survey Fees (est.):</div>
+                                <div class="metric-value" id="survey-fees">₦0</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-label">Registration/Other (1%):</div>
+                                <div class="metric-value" id="registration-fees">₦0</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-label">Upfront Cash Needed:</div>
+                                <div class="metric-value" id="upfront-total">₦0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Location Insights Section -->
+    <section id="location" class="location-section section">
+        <div class="container">
+            <h2>Location Insights</h2>
+            <p class="section-description">Get detailed information about popular neighborhoods in Nigeria.</p>
+            
+            <div class="location-selector">
+                <select id="location-select" class="input">
+                    <option value="">Select a location</option>
+                    <option value="lekki">Lekki/Ajah</option>
+                    <option value="ikeja">Ikeja</option>
+                    <option value="yaba">Yaba</option>
+                    <option value="maitama">Maitama (Abuja)</option>
+                    <option value="asokoro">Asokoro (Abuja)</option>
+                    <option value="gwarinpa">Gwarinpa (Abuja)</option>
+                    <option value="wuse">Wuse (Abuja)</option>
+                    <option value="ph_gra">Port Harcourt GRA</option>
+                    <option value="trans_amadi">Trans-Amadi (PH)</option>
+                </select>
+            </div>
+
+            <div class="location-details">
+                <div class="location-card card">
+                    <h3>Safety Rating</h3>
+                    <p id="location-safety">Select a location</p>
+                </div>
+                <div class="location-card card">
+                    <h3>Infrastructure</h3>
+                    <p id="location-infrastructure">Select a location</p>
+                </div>
+                <div class="location-card card">
+                    <h3>Transport Access</h3>
+                    <p id="location-transport">Select a location</p>
+                </div>
+                <div class="location-card card">
+                    <h3>Amenities</h3>
+                    <p id="location-amenities">Select a location</p>
+                </div>
+            </div>
+
+            <div class="location-description card">
+                <h3>Overview</h3>
+                <p id="location-description">Select a location to see detailed information.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/logo.jpg" alt="iGetHouse Logo" class="logo-img">
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#calculator">Calculator</a></li>
+                            <li><a href="#location">Location</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#features">Buyer's Guide</a></li>
+                            <li><a href="#features">FAQs</a></li>
+                            <li><a href="#features">Blog</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 iGetHouse. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Assessment Wizard Modal -->
+    <div id="assessment-wizard" class="wizard-overlay" aria-hidden="true">
+        <div class="wizard-dialog" role="dialog" aria-modal="true" aria-labelledby="wizard-title">
+            <div class="wizard-header">
+                <h3 id="wizard-title">Smart Home Buying Assessment</h3>
+                <button class="wizard-close" id="wizard-close" aria-label="Close">×</button>
+            </div>
+            <div class="wizard-progress">
+                <div class="wizard-progress-fill" id="wizard-progress-fill"></div>
+            </div>
+            <div class="wizard-body">
+                <!-- Step 1: Profile -->
+                <section class="wizard-step" data-step="1">
+                    <h4>Tell us about you</h4>
+                    <div class="chip-group" data-field="buyerType">
+                        <button class="chip" data-value="first_time">First-time buyer</button>
+                        <button class="chip" data-value="upgrader">Upgrading home</button>
+                        <button class="chip" data-value="investor">Investor</button>
+                    </div>
+                    <h5>Your monthly income</h5>
+                    <div class="chip-group" data-field="salary">
+                        <button class="chip" data-value="150000-300000">₦150k–₦300k</button>
+                        <button class="chip" data-value="300000-600000">₦300k–₦600k</button>
+                        <button class="chip" data-value="600000-1200000">₦600k–₦1.2M</button>
+                        <button class="chip" data-value=">1200000">₦1.2M+</button>
+                    </div>
+                </section>
+                
+                <!-- Step 2: Location -->
+                <section class="wizard-step" data-step="2">
+                    <h4>Preferred location</h4>
+                    <div class="chip-group" data-field="location">
+                        <button class="chip" data-value="lekki">Lekki/Ajah</button>
+                        <button class="chip" data-value="ikeja">Ikeja</button>
+                        <button class="chip" data-value="yaba">Yaba</button>
+                        <button class="chip" data-value="other">Other</button>
+                    </div>
+                    <div class="helper-text">We’ll suggest nearby areas too.</div>
+                </section>
+                
+                <!-- Step 3: Goals -->
+                <section class="wizard-step" data-step="3">
+                    <h4>Your property goals</h4>
+                    <div class="chip-group" data-field="propertyType">
+                        <button class="chip" data-value="flat">Flat/Apartment</button>
+                        <button class="chip" data-value="house">House</button>
+                        <button class="chip" data-value="duplex">Duplex</button>
+                        <button class="chip" data-value="terrace">Terrace</button>
+                    </div>
+                    <div class="slider-row">
+                        <label for="budget-slider">Target price</label>
+                        <input id="budget-slider" type="range" min="10000000" max="200000000" step="500000" value="35000000">
+                        <div class="slider-value"><span id="budget-value">₦35,000,000</span></div>
+                    </div>
+                </section>
+                
+                <!-- Step 4: Financing -->
+                <section class="wizard-step" data-step="4">
+                    <h4>How do you plan to pay?</h4>
+                    <div class="chip-group" data-field="paymentMethod">
+                        <button class="chip" data-value="cash">Cash</button>
+                        <button class="chip" data-value="mortgage">Mortgage</button>
+                        <button class="chip" data-value="installment">Installment Plan</button>
+                    </div>
+                    <div class="financing-grid" id="financing-grid">
+                        <div class="finance-card">
+                            <div class="finance-title">Down Payment</div>
+                            <div class="slider-row compact">
+                                <input id="downpayment-slider" type="range" min="10" max="50" step="5" value="20">
+                                <div class="slider-value"><span id="downpayment-value">20%</span></div>
+                            </div>
+                        </div>
+                        <div class="finance-card">
+                            <div class="finance-title">Mortgage Estimate</div>
+                            <div class="metric"><span>Monthly</span><strong id="mortgage-monthly">₦0</strong></div>
+                            <div class="metric"><span>Tenor</span><strong>30 yrs</strong></div>
+                            <div class="metric"><span>Rate</span><strong>9% APR</strong></div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Step 5: Preferences -->
+                <section class="wizard-step" data-step="5">
+                    <h4>Lifestyle & priorities</h4>
+                    <div class="chip-group" data-field="lifestyle">
+                        <button class="chip" data-value="minimal">Minimal</button>
+                        <button class="chip" data-value="moderate">Moderate</button>
+                        <button class="chip" data-value="comfort">Comfort</button>
+                        <button class="chip" data-value="luxury">Luxury</button>
+                    </div>
+                    <div class="chip-group" data-field="priority">
+                        <button class="chip" data-value="schools">Near schools</button>
+                        <button class="chip" data-value="transport">Transport access</button>
+                        <button class="chip" data-value="security">High security</button>
+                        <button class="chip" data-value="amenities">Amenities</button>
+                    </div>
+                    <h5>When do you plan to buy?</h5>
+                    <div class="chip-group" data-field="timeframe">
+                        <button class="chip" data-value="0-3m">0–3 months</button>
+                        <button class="chip" data-value="3-6m">3–6 months</button>
+                        <button class="chip" data-value="6-12m">6–12 months</button>
+                        <button class="chip" data-value=">12m">12+ months</button>
+                    </div>
+                    <div class="slider-row">
+                        <label for="bedrooms-slider">Bedrooms</label>
+                        <input id="bedrooms-slider" type="range" min="1" max="6" step="1" value="3">
+                        <div class="slider-value"><span id="bedrooms-value">3</span> beds</div>
+                    </div>
+                </section>
+
+                <!-- Tips Panel -->
+                <div id="wizard-tips" class="wizard-tips"></div>
+
+                <!-- Step 6: Summary -->
+                <section class="wizard-step" data-step="6">
+                    <h4>Your Smart Plan</h4>
+                    <div id="summary-cards" class="summary-grid"></div>
+
+                    <!-- Explore Listings (Marketplace Deep Link) -->
+                    <div id="marketplace-block" class="marketplace-block">
+                        <a id="marketplace-link" href="#" target="_blank" rel="noopener" class="btn btn-primary">Explore Matching Listings</a>
+                    </div>
+
+                    <!-- Personalized Checklist -->
+                    <div id="checklist-block" class="checklist-block"></div>
+                    
+                    <!-- Report content for Export -->
+                    <div id="report-content" class="report">
+                        <div class="report-header">
+                            <div class="brand"><img src="assets/logo.jpg" alt="iGetHouse" class="report-logo"> iGetHouse Buyer’s Toolkit</div>
+                            <div class="report-meta"><span id="report-date"></span></div>
+                        </div>
+                        <div id="report-sections"></div>
+                        <div class="report-footer">
+                            <div>Website: igethouse.com</div>
+                            <div>Email: agent@igethouse.com</div>
+                            <div>WhatsApp: +234 (update)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="export-row">
+                        <button id="save-assessment" class="btn btn-secondary">Save</button>
+                        <button id="send-agent" class="btn btn-secondary">Send to Agent</button>
+                        <button id="export-assessment" class="btn btn-primary">Export</button>
+                        <button id="finish-assessment" class="btn btn-cta">Finish</button>
+                    </div>
+                </section>
+            </div>
+            <div class="wizard-footer">
+                <button id="wizard-back" class="btn btn-secondary" disabled>Back</button>
+                <button id="wizard-next" class="btn btn-primary" disabled>Next</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Agent Modal -->
+    <div id="agent-modal" class="wizard-overlay" aria-hidden="true">
+        <div class="wizard-dialog" role="dialog" aria-modal="true" aria-labelledby="agent-title">
+            <div class="wizard-header">
+                <h3 id="agent-title">Send Assessment to iGetHouse Agent</h3>
+                <button class="wizard-close" id="agent-close" aria-label="Close">×</button>
+            </div>
+            <div class="wizard-body">
+                <div class="form-grid">
+                    <div class="form-col">
+                        <label for="user-name">Full Name</label>
+                        <input id="user-name" class="input" type="text" placeholder="Your full name" />
+                    </div>
+                    <div class="form-col">
+                        <label for="user-email">Email</label>
+                        <input id="user-email" class="input" type="email" placeholder="you@example.com" />
+                    </div>
+                    <div class="form-col">
+                        <label for="user-phone">Phone (WhatsApp)</label>
+                        <input id="user-phone" class="input" type="tel" placeholder="+234..." />
+                    </div>
+                    <div class="form-col full">
+                        <label for="user-notes">Notes (optional)</label>
+                        <textarea id="user-notes" class="input" rows="3" placeholder="Anything specific we should know?"></textarea>
+                    </div>
+                </div>
+                <div class="export-row">
+                    <button id="agent-send-whatsapp" class="btn btn-primary">Send via WhatsApp</button>
+                    <button id="agent-send-email" class="btn btn-secondary">Send via Email</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional PDF export lib (fallbacks to print if unavailable) -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
+    <!-- Scripts -->
+    <script src="scripts/main.js"></script>
+</body>
+</html> 
