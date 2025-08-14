@@ -1634,3 +1634,30 @@ class WizardAssessment {
     function boot(){ try { new LocationInsights(); } catch(e){ console.error(e); } }
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 })(); 
+
+// Knowledge Hub: accordion + wizard opener
+(function(){
+	function initKnowledge(){
+		// Accordion toggles
+		document.querySelectorAll('.accordion-header').forEach(btn => {
+			btn.addEventListener('click', () => {
+				const expanded = btn.getAttribute('aria-expanded') === 'true';
+				btn.setAttribute('aria-expanded', String(!expanded));
+				const content = btn.parentElement.querySelector('.accordion-content');
+				if (content) content.classList.toggle('open');
+			});
+		});
+		// Wizard open from knowledge section
+		const openBtn = document.getElementById('open-wizard-knowledge');
+		if (openBtn && window.wizard && typeof window.wizard.open === 'function') {
+			openBtn.addEventListener('click', (e) => { e.preventDefault(); window.wizard.open(); });
+		} else if (openBtn) {
+			openBtn.addEventListener('click', (e) => {
+				e.preventDefault();
+				const evt = new Event('click');
+				document.getElementById('get-started-btn')?.dispatchEvent(evt);
+			});
+		}
+	}
+	if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initKnowledge); else initKnowledge();
+})();

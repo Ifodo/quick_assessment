@@ -1575,3 +1575,39 @@ p {
 /* Hero brand logo above title */
 .hero-brand { height: 96px; width: auto; margin: 0 auto var(--spacing-md); display: block; border-radius: 6px; } 
 
+/* Knowledge Hub */
+.knowledge h2 { text-align: center; }
+.knowledge .section-description { text-align: center; max-width: 720px; margin: 0 auto var(--spacing-xl); color: var(--color-text-light); }
+
+.knowledge-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--spacing-xl); margin-bottom: var(--spacing-2xl); }
+.info-card { border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--spacing-xl); background: var(--color-white); }
+.info-card h3 { color: var(--color-primary); margin-bottom: var(--spacing-md); }
+.steps-list .step { padding: 6px 0; border-bottom: 1px dashed var(--color-border); }
+.steps-list .step:last-child { border-bottom: none; }
+.pill-list { display: flex; flex-wrap: wrap; gap: var(--spacing-sm); margin-top: var(--spacing-sm); }
+.pill { padding: 6px 10px; background: var(--color-light-grey); border-radius: 999px; font-size: 14px; }
+.bullet { margin-left: 18px; }
+
+/* Accordion */
+.accordion { border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: var(--spacing-2xl); }
+.accordion-item + .accordion-item { border-top: 1px solid var(--color-border); }
+.accordion-header { width: 100%; text-align: left; padding: var(--spacing-lg); background: var(--color-white); border: none; display: flex; justify-content: space-between; align-items: center; font-weight: 600; cursor: pointer; }
+.accordion-header .chevron { transition: transform 0.2s ease; }
+.accordion-header[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+.accordion-content { display: none; padding: 0 var(--spacing-lg) var(--spacing-lg); background: var(--color-white); color: var(--color-text-light); }
+.accordion-content.open { display: block; }
+
+/* Glossary tags */
+.glossary { margin-bottom: var(--spacing-xl); }
+.glossary h3 { color: var(--color-primary); margin-bottom: var(--spacing-md); text-align: center; }
+.tags { display: flex; flex-wrap: wrap; gap: var(--spacing-sm); justify-content: center; }
+.tag { padding: 8px 12px; border: 1px solid var(--color-border); border-radius: 999px; background: var(--color-white); font-size: 14px; }
+
+/* Knowledge actions */
+.knowledge .report-actions { text-align: center; }
+.section-note { color: var(--color-text-light); display: block; margin-top: var(--spacing-sm); }
+
+@media (max-width: 768px) {
+	.knowledge-grid { grid-template-columns: 1fr; }
+} 
+
