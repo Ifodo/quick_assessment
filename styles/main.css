@@ -1605,6 +1605,7 @@ p {
 
 /* Knowledge actions */
 .knowledge .report-actions { text-align: center; }
+.knowledge .report-buttons { display: flex; justify-content: center; align-items: center; margin-left: auto; margin-right: auto; }
 .section-note { color: var(--color-text-light); display: block; margin-top: var(--spacing-sm); }
 
 @media (max-width: 768px) {
